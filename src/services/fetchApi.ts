@@ -19,7 +19,7 @@ export async function fetchApi (
   (nextPageToken ? `&pageToken=${nextPageToken}` : "");
 
   try {
-    const { data } = await axios.get(paramsUrl);
+    const { data } = await axios.get(paramsUrl);    
     return data;
   } catch (error) {
     if ( error instanceof Error) throw error;

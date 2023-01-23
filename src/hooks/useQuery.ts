@@ -8,14 +8,18 @@ interface IParams {
   query: string;
 };
 
-export function useQuery ({ query }: IParams): [
+type TReturnHook = {
   data: IItem[],
   isLoading: boolean,
   error: Error | null,
-  hasMore: boolean | string,
+  hasMore: boolean | undefined,
   loadMore: () => void,
   clearData: () => void,
-] {
+};
+
+export function useQuery ({ query }: IParams): TReturnHook {
+  console.log(query);
+  
   const [data, setData] = useState<IItem[]>([]);
   const [error, setError] = useState<Error | null>(null);
   const [nextPageToken, setNextPageToken] = useState<string>("");
@@ -58,5 +62,5 @@ export function useQuery ({ query }: IParams): [
     setNextPageToken("");
   }, []);
 
-  return [data, isLoading, error, hasMore, loadMore, clearData];
+  return { data, isLoading, error, hasMore, loadMore, clearData };
 };

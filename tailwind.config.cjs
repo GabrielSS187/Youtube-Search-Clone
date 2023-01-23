@@ -10,6 +10,7 @@ module.exports = {
         primary: "#181818",
         secondary: "#202020",
         tertiary: "#ff0000",
+        blackRgba: "rgba(0, 0, 0, 0.54)",
       }
     },
   },

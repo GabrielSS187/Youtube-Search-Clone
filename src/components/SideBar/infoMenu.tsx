@@ -69,8 +69,8 @@ export function InfoMenu ({ openMenu, closeMenu }: TProps) {
   };
 
   return (
-    <ul className={`flex flex-col ${openMenu ? "w-20 items-center z-50" : "w-64"}`}>
-      <div onClick={handleStateMenu} className={`inline-block p-2 hover:bg-[#4c4c4c] focus:bg-[#4c4c4c]
+    <ul className={`flex flex-col ${openMenu ? "w-20 items-center" : "w-64"} list-none`}>
+      <div onClick={handleStateMenu} className={`cursor-pointer inline-block p-2 hover:bg-[#4c4c4c] focus:bg-[#4c4c4c]
           ${ actualLabel === "menu" &&  "bg-[#4c4c4c]"} ${ !openMenu && "pl-6" }
         `
       }>
@@ -90,7 +90,7 @@ export function InfoMenu ({ openMenu, closeMenu }: TProps) {
           return (
             <li 
               key={item.label} 
-              className={`flex flex-col items-center`}
+              className={`${openMenu && "flex max-md:hidden md:flex" } flex flex-col items-center cursor-pointer`}
               onClick={() => setActualLabel(item.label)}
             >
               { item.gap && ( <hr className="w-[90%]  bg-white my-5"/> ) }
