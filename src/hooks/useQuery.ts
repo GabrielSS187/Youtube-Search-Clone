@@ -18,8 +18,6 @@ type TReturnHook = {
 };
 
 export function useQuery ({ query }: IParams): TReturnHook {
-  console.log(query);
-  
   const [data, setData] = useState<IItem[]>([]);
   const [error, setError] = useState<Error | null>(null);
   const [nextPageToken, setNextPageToken] = useState<string>("");
