@@ -13,7 +13,7 @@ export function Logo ({ className }: TProps) {
       src={logoYoutube}
       alt="logo"
       className={`w-24 cursor-pointer ${className}`}
-      onClick={() => navigate("/")}
+      // onClick={() => navigate("/")}
     />
   );
 };

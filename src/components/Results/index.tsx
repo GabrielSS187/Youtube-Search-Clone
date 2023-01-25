@@ -17,7 +17,7 @@ export function Results ({ openMenu }: TProps) {
   const params = new URLSearchParams(location.search);
   const [ query, setQuery ] = useState<string | any>(params.get("query" ?? ""));
 
-  const { data,isLoading, error, hasMore, clearData, loadMore } = 
+  const { data, isLoading, error, hasMore, clearData, loadMore } = 
   useQuery({query});
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export function Results ({ openMenu }: TProps) {
   }, [location, clearData]);
 
   return (
-    <div className={`w-full ${!openMenu ? "bg-opacity-25 bg-blackRgba" : "bg-primary"} md:w-full h-screen overflow-y-scroll scrollbar-hide pt-24 px-8 flex flex-col items-center`} >
+    <div className={`w-full ${!openMenu ? "bg-opacity-25 bg-blackRgba" : "bg-primary"} md:w-full h-screen overflow-y-scroll scrollbar-hide pt-24 pl-16 pr-2 flex flex-col items-center max-md:pl-2`} >
       { isLoading && ( <LoadingIndicator /> ) }
 
       { !isLoading && error !== null && (
@@ -61,7 +61,7 @@ export function Results ({ openMenu }: TProps) {
             loader={<LoadingIndicator key={0} />}
             useWindow={false}
           >
-            <ul className="list-none ml-64">
+            <ul className="list-none md:ml-12 max-sm:mt-28">
               {
                 data.map((item, index) => {
                   return (
